@@ -85,9 +85,28 @@ def game(stdsrc):
         # Center the text
         x = width // 2 - len(sentence) // 2
         y = height // 2
+        
+        # Check if the text is too long
+        if len(sentence) > width:
+            # Calculate the number of rows
+            rows = len(sentence) // width
+
+            # Split the sentence into a list of words
+            sentence = sentence.split()
+
+            # Calculate the breakpoint
+            breakpoint = len(sentence) // rows
+
+            # Split the sentence into rows
+            sentence = [sentence[breakpoint * i:breakpoint * (i + 1)] for i in range(rows)]
 
         # Check every letter of the sentence and of the user input
         for i in range(len(sentence)):
+
+            # Check if the current character is a \n and ignores it
+            if sentence[i] == '\n':
+                y += 1
+                continue
 
             # While the user has written something
             if i < len(user_input):
