@@ -79,6 +79,13 @@ def game(stdsrc):
         if user_input == sentence:
             break
 
+        # Gets the width and height of the screen
+        height, width = stdsrc.getmaxyx()
+
+        # Center the text
+        x = width // 2 - len(sentence) // 2
+        y = height // 2
+
         # Check every letter of the sentence and of the user input
         for i in range(len(sentence)):
 
@@ -88,21 +95,21 @@ def game(stdsrc):
                 
                 # If it's correct then print it as green
                 if current == sentence[i]:
-                    stdsrc.addstr(current, curses.color_pair(1))
+                    stdsrc.addstr(y, x + i, current, curses.color_pair(1))
 
                 # If it's wrong then print it as red
                 else:
-                    stdsrc.addstr(current, curses.color_pair(2))
+                    stdsrc.addstr(y, x + i, current, curses.color_pair(2))
 
             # Else if the user didn't typed until now
             else:
                 # If it's the letter the user is about to type then highlight it
                 if i == len(user_input):
-                    stdsrc.addstr(sentence[i], curses.color_pair(3))
+                    stdsrc.addstr(y, x + i, sentence[i], curses.color_pair(3))
 
                 # Else print it normally
                 else:
-                     stdsrc.addstr(sentence[i])
+                     stdsrc.addstr(y, x + i, sentence[i])
 
         # Get input as string
         key = stdsrc.getkey()
@@ -112,7 +119,7 @@ def game(stdsrc):
             user_input = user_input[:-1]
 
         # Else if it's a valid key, add it to the user input
-        elif key in VALIDS:
+        elif key in VALIDS and len(user_input) < len(sentence):
             user_input += key
 
         # Refresh the screen to see the changes
