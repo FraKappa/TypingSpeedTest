@@ -85,7 +85,8 @@ def game(stdsrc):
         # Center the text
         x = width // 2 - len(sentence) // 2
         y = height // 2
-        
+
+        '''
         # Check if the text is too long
         if len(sentence) > width:
             # Calculate the number of rows
@@ -99,6 +100,7 @@ def game(stdsrc):
 
             # Split the sentence into rows
             sentence = [sentence[breakpoint * i:breakpoint * (i + 1)] for i in range(rows)]
+        '''
 
         # Check every letter of the sentence and of the user input
         for i in range(len(sentence)):
