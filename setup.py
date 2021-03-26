@@ -13,8 +13,8 @@ setup(
     long_description_content_type='text/markdown',
     author='Kappa',
     author_email='f.cappetti.05@gmail.com',
-    url='https://github.com/FraKappa/pytype',
-    download_url='https://github.com/FraKappa/pytyping/archive/refs/tags/v_01.tar.gz',
+    url='https://github.com/FraKappa/pytyping',
+    download_url='https://github.com/FraKappa/pytyping/archive/refs/tags/v_02.tar.gz',
     keywords=['typing'],
     install_requires=[
         'requests'
