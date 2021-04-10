@@ -11,5 +11,5 @@ pip install pytyping
 
 To run the program:
 ```
-python -m pytyping
+pytyping
 ```
